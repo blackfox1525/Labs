@@ -4,15 +4,12 @@ months = 10  # Количество месяцев, которое планир�
 increase = 0.03  # Ежемесячный рост цен
 
 # TODO Рассчитайте подушку безопасности, чтобы протянуть 10 месяцев без долгов
-money_capital = 0 # Подушка безопасности до расчета
-month = 1 # Текущий месяц
 
-while month <= months:
-    money_capital += salary
-    money_capital -= spend
+money_capital = spend - salary
+
+for i in range(1, 10):
     spend *= (1 + increase)
-    month += 1
-
-money_capital *= (-1)
+    money_capital -= salary
+    money_capital += spend
 
 print(f"Подушка безопасности, чтобы протянуть {months} месяцев без долгов:", int(money_capital))
