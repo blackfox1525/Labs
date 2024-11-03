@@ -4,22 +4,13 @@ def count_letters(str):
     low_str = str.lower()
     for symbol in low_str:
         if symbol.isalpha():
-            #letters.append(symbol.lower())
             value = low_str.count(symbol)
             letters[symbol] = value
     return letters
 
-    #unique_letters = list(set(letters))
-    #count_dict = {}
-    #for letter in unique_letters:
-     #   count_dict[letter] = letters.count(letter)
-
-    #return count_dict
-
 # TODO Напишите функцию calculate_frequency
 def calculate_frequency(str_dict):
     dikt_lett = {}
-    #numbers_of_letter = len(str_dict)
     for key, value in str_dict.items():
         dikt_lett[key] = value / sum(str_dict.values())
 
