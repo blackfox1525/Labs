@@ -1,24 +1,29 @@
 # TODO  Напишите функцию count_letters
 def count_letters(str):
-    letters = []
-    for symbol in str:
+    letters = {}
+    low_str = str.lower()
+    for symbol in low_str:
         if symbol.isalpha():
-            letters.append(symbol.lower())
+            #letters.append(symbol.lower())
+            value = low_str.count(symbol)
+            letters[symbol] = value
+    return letters
 
-    unique_letters = list(set(letters))
-    count_dict = {}
-    for letter in unique_letters:
-        count_dict[letter] = letters.count(letter)
+    #unique_letters = list(set(letters))
+    #count_dict = {}
+    #for letter in unique_letters:
+     #   count_dict[letter] = letters.count(letter)
 
-    return count_dict
+    #return count_dict
 
 # TODO Напишите функцию calculate_frequency
 def calculate_frequency(str_dict):
-    numbers_of_letter = len(str_dict)
+    dikt_lett = {}
+    #numbers_of_letter = len(str_dict)
     for key, value in str_dict.items():
-        str_dict[key] = round(value / numbers_of_letter, 2)
+        dikt_lett[key] = value / sum(str_dict.values())
 
-    return str_dict
+    return dikt_lett
 
 main_str = """
 У лукоморья дуб зелёный;
@@ -61,4 +66,4 @@ letters_count = count_letters(main_str)
 letters_frequency = calculate_frequency(letters_count)
 
 for key, value in letters_frequency.items():
-    print(key, ': ', value, sep='')
+    print(f"{key}: {value:.2f}")
